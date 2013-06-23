@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UpdateUsersTableAddUsernameAndAge extends Migration {
+class FixUsernameColumnMakeUnique extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -15,12 +15,10 @@ class UpdateUsersTableAddUsernameAndAge extends Migration {
 		Schema::table('users', function($table)
 		{
 
-			$table->string('username', 18);
-			$table->integer('age', false);
-
 			// We'll need to ensure that MySQL uses the InnoDB engine to
 			// support the indexes, other engines aren't affected.
 			$table->engine = 'InnoDB';
+			$table->unique('username');
 		});
 	}
 
