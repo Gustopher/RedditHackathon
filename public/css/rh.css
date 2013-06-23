@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+html, body {
+
+	background: url('/img/bg.png') no-repeat;
+	background-size: 100%;
+
+}
+
+.masthead {
+
+	width: 940px;
+	margin: 20px auto;
+
+}
+
+.masthead a {
+
+	text-decoration: none;
+	color: white;
+
+}
+
+.masthead a:hover {
+
+	color: #195370;
+
+}
+
+.masthead img {
+
+	width: 130px;
+	height: 50px;
+
+}
+
+#register, #login, #legend, #activate {
+	
+	text-align: center;
+	min-height: 300px;
+
+}
+
+#activate {
+
+	float: none;
+	margin: 0 auto;
+
+}
+
+#legend > table {
+
+	margin-bottom: 0;
+
+}
+
+div.footer ul a {
+
+	color: white;
+
+}

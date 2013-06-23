@@ -35,7 +35,7 @@ App::after(function($request, $response)
 
 Route::filter('auth', function()
 {
-	if (Auth::guest()) return Redirect::guest('login');
+	if ( ! Sentry::check() ) return Redirect::action('HomeController@getLogin');
 });
 
 
@@ -43,6 +43,8 @@ Route::filter('auth.basic', function()
 {
 	return Auth::basic();
 });
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -57,7 +59,7 @@ Route::filter('auth.basic', function()
 
 Route::filter('guest', function()
 {
-	if (Auth::check()) return Redirect::to('/');
+	if ( Sentry::check() ) return Redirect::to('/');
 });
 
 /*

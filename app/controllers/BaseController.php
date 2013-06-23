@@ -2,6 +2,12 @@
 
 class BaseController extends Controller {
 
+	protected static $isJsonRequest = false;
+
+	public function __construct() {
+		self::$isJsonRequest = Input::has('response-type') && Input::get('response-type') === 'json' ? true : false;
+	}
+
 	/**
 	 * Setup the layout used by the controller.
 	 *
@@ -13,6 +19,10 @@ class BaseController extends Controller {
 		{
 			$this->layout = View::make($this->layout);
 		}
+	}
+
+	public static function isJsonRequest() {
+		return self::$isJsonRequest;
 	}
 
 }
